@@ -1,4 +1,4 @@
-CLUSTER = False
+CLUSTER = True
 
 if not CLUSTER:
     import findspark
