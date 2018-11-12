@@ -5,13 +5,14 @@ if not CLUSTER:
     findspark.init()
 from pyspark.sql import *
 
+FILE_NAME = 'amazon_reviews_multilingual_FR_v1_00.tsv.gz'
 DATA_PATH = 'hdfs://datasets/amazon_multiling/tsv/' if CLUSTER else 'data/'
 
 spark = SparkSession.builder.getOrCreate()
 
-#data_electronics = spark.read.csv(DATA_PATH + 'sample_us.tsv')
-data_electronics = spark.read.csv(DATA_PATH + 'amazon_reviews_multilingual_FR_v1_00.tsv')
+
+data = spark.read.option("sep", "\t").option("header", "true").csv(DATA_PATH + FILE_NAME)
 
 
-print(data_electronics.take(3))
-
+print(data.take(2))
+print(data.count())
