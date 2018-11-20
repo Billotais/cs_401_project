@@ -40,4 +40,26 @@ The main questions to answer in milestone 2:
 
 ## Questions for TAs
 
-The data on the cluster doesn't seem to correspond to what is shown on the dataset's webpage : Reviews and products seems to have already been merged on the cluster, which is not the case on the webpage. But some informations seem to be missing (image url, also_bought, brand, ...). Is this dataset (metadata) available on the cluster, or will we have to downlead it on our own computer ?
+The data on the cluster doesn't seem to correspond to what is shown on the dataset's webpage : Reviews and products seems to have already been merged on the cluster, which is not the case on the webpage. But some informations seem to be missing (image url, also_bought, brand, ...). Is this dataset (metadata) available on the cluster, or will we have to downloaded it on our own computer ?
+
+## Some ideas discussed before milestone 2
+
+About the correction of a potential bias: 
+
+Define avg = Median of all the users' average rating (only taking account users with a minimal amount of reviews to get more significant users rating habits)
+
+Now, for a given review:
+
+- Let $x$ = the median rating for the user that wrote the review
+- Let $\alpha$, a coefficient from 0 to 1, depending on the number of votes and the ratio of helpful votes s.t.
+    - The higher the helpful ratio is, the lower the coefficient will be
+    - If the number of votes is very small (~1-3?), the impact of the helpful ratio will be lessened
+    - We might have other parameters influencing $\alpha$, in which case we will update this formula accordingly 
+
+- We can now get the corrected rating as $corrected_rating = actual_rating + \alpha *(avg - x)$.
+
+We can explain what this does like this: when we see a review, we will look at the rating habits of the user. If the user is used to giving bad ratings compared to the amazon average, he will be considered as biased, and his rating will be revised upwards. However, if his review received a lot of helpful votes, it probably means that other customers agreed with him, and in that case we will not change his rating as much (hence $\alpha$ will be closer to 0). The idea is similar for reviewers that mostly put positive reviews, in which case it will be revised downwards.
+
+Overall we do not really know how it will affect the total average rating of amazon, as we are taking the $x$ as the median (and not the average), it may not affect symmetrically the users above/under the $x$ value. Also we only take the users with a minimal amount of reviews into account, but they may act differently than the other users (for instance give more extreme values...). The alpha value may also skew the results as users will possibly set more positive reviews as helpful than negative ones.
+
+Note that the corrected rating might be greater than 5. We will temporarily keep that value, and then compute the average rating for an article, such that ratings that were greatly pushed upwards (e.g. to a 5.6)will have a bigger positive effect than the others "best ratings" of 5 stars. For the final rating of the product, we could either put all the ratings higher than 5 at 5, or do some scaling over all the reviews to but most of them in the range from 1 to 5 (e.g. if 95% of the corrected product ratings are between 1 and 6, we can either cut all the ratings from 5 to 6 and put them at 5, or shift/scale all the ratings so that a 6 now corresponds to a 5, and a 5 now corresponds to a ~4.17)   
