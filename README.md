@@ -55,8 +55,9 @@ Now, for a given review:
     - The higher the helpful ratio is, the lower the coefficient will be
     - If the number of votes is very small (~1-3?), the impact of the helpful ratio will be lessened
     - We might have other parameters influencing $\alpha$, in which case we will update this formula accordingly 
-
+	- A possible formula for $\alpha$ is $\alpha=[helpful ratio]*(1-exp(-\lambda*[n_reviews]))$ where $\lambda$ is a tuning parameter.
 - We can now get the corrected rating as $corrected_rating = actual_rating + \alpha *(avg - x)$.
+
 
 We can explain what this does like this: when we see a review, we will look at the rating habits of the user. If the user is used to giving bad ratings compared to the amazon average, he will be considered as biased, and his rating will be revised upwards. However, if his review received a lot of helpful votes, it probably means that other customers agreed with him, and in that case we will not change his rating as much (hence $\alpha$ will be closer to 0). The idea is similar for reviewers that mostly put positive reviews, in which case it will be revised downwards.
 
