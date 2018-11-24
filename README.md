@@ -29,7 +29,11 @@ We will use NLP to extract interesting features from the product name and from t
 Since the dataset is very big, we will first concentrate on books, and possibly in a second stage extend our work to other categories if time permits. Since the dataset of books is still very large, we will use a subsample of the data for prototyping.
 
 
-## A list of internal milestones up until project milestone 2
+# Milestones
+
+## Milestone 1
+
+### A list of internal milestones up until project milestone 2
 
 The main questions to answer in milestone 2:
 
@@ -42,9 +46,9 @@ The main questions to answer in milestone 2:
 
 The data on the cluster doesn't seem to correspond to what is shown on the dataset's webpage : Reviews and products seems to have already been merged on the cluster, which is not the case on the webpage. But some informations seem to be missing (image url, also_bought, brand, ...). Is this dataset (metadata) available on the cluster, or will we have to downloaded it on our own computer ?
 
-## Some ideas discussed before milestone 2
+## Milestone 2
 
-About the correction of a potential bias: 
+### Some ideas about the correction of pentential bias
 
 Define avg = Median of all the users' average rating (only taking account users with a minimal amount of reviews to get more significant users rating habits)
 
