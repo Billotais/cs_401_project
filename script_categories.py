@@ -214,12 +214,12 @@ def generate_graphs(data, name):
     print("Text analysis done", end='\r')
 
 
-# for category in categories:
-#     FILE_NAME = 'amazon_reviews_us_' + category + '_v1_00.tsv.gz'
-#     data = spark.read.option("sep", "\t").option("header", "true").csv(DATA_PATH + FILE_NAME)
-#     name = ' '.join(category.split('_'))
-#     generate_graphs(data, name)
-#     print("Graphs generated for category %s" % name)
+for category in categories:
+    FILE_NAME = 'amazon_reviews_us_' + category + '_v1_00.tsv.gz'
+    data = spark.read.option("sep", "\t").option("header", "true").csv(DATA_PATH + FILE_NAME)
+    name = ' '.join(category.split('_'))
+    generate_graphs(data, name)
+    print("Graphs generated for category %s" % name)
 
 for category in special_categories:
     FILE_NAMES = ['amazon_reviews_us_' + x + '.tsv.gz' for x in category]
