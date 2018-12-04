@@ -54,7 +54,7 @@ Define avg = Median of all the users' average rating (only taking account users 
 
 Now, for a given review:
 
-- Let x = the median rating for the user that wrote the review
+- Let x = the average rating for the user that wrote the review
 - Let *alpha*, a coefficient from 0 to 1, depending on the number of votes and the ratio of helpful votes s.t.
     - The higher the helpful ratio is, the lower the coefficient will be
     - If the number of votes is very small (~1-3?), the impact of the helpful ratio will be lessened
