@@ -72,7 +72,38 @@ Note that the corrected rating might be greater than 5. We will temporarily keep
 
 
 ### Other analysis
+
 We will also perform analysis of the average ratings across time, countries and product types. We will use the average rating as a proxy for raters happyness and how severe they rate.
 We argue that this analysis can be done because there is no reason for the same product to be rated differently accross different countries.
 In milestone 2 we show how we will conduct our analysis and test it for US-books. In the next milestone, we will extend it to different countries and product types.
 Herding behaviour is another effect we will consider in the next milestone.
+
+## Milestone 3
+
+### For the Datastory
+
+- Introduction :
+	- Context
+	- Motivation
+	- General description / statistics
+	- Explanations of decisions / simplification
+- Effect on rating :
+	- by category
+		- Interesting effects observed (dates, helpful, ...) for Books
+			- Interpretation
+			- Importance for bias correction
+		- Comparasion with other categories
+	- by country
+		- Difference between countries
+		- Herding
+	- (by user) 
+		- by category 
+- Bias correction
+	- Decisions
+	- Correction by date and other factors seen in previous observations
+	- Correction by user history (using the formula)
+- Conclusion
+	- Summary
+	- Further possible work
+	- Usefulness (ethics, applicable, for whom, ...)
+	- (Comparasion with otehr studies ?)
