@@ -45,20 +45,22 @@ def generate_graphs(data, name):
     #fig, (ax1, ax2) = plt.subplots(1,2, figsize=(15,6))
         
     # First plot the average rating with its confidence interval
+    plt.figure(figsize=(10,6))
     plt.plot(by_review_pandas['helpful_ratio']['mean'], by_review_pandas['star_rating']['mean'])
     plt.fill_between(by_review_pandas['helpful_ratio']['mean'], by_review_pandas['star_rating']['mean'] - 1.96 * by_review_pandas['star_rating']['std'] / np.sqrt(by_review_pandas['star_rating']['count']), \
                                                              by_review_pandas['star_rating']['mean'] + 1.96 * by_review_pandas['star_rating']['std'] / np.sqrt(by_review_pandas['star_rating']['count']),alpha=0.5)
     plt.xlabel("Helpful ratio")
     plt.ylabel('Average Rating')
-    plt.title('Average Rating vs Helpful ratio (with 95% CI) for category ' + name)
-    plt.savefig(IMG_PATH + "helpful_vs_rating_" + name + ".png", bbox_inches='tight')  
+    plt.title('Average Rating vs Helpful ratio for ' + name)
+    plt.savefig(IMG_PATH + "helpful_vs_rating_" + name + ".png")  
     plt.clf()
 
+    plt.figure(figsize=(10,6))
     plt.plot(by_review_pandas['helpful_ratio']['mean'], by_review_pandas['star_rating']['count'])
     plt.xlabel("Helpful ratio")
     plt.ylabel('Number of reviews')
-    plt.title('Number of reviews vs Helpful ratio for category ' + name)
-    plt.savefig(IMG_PATH + "helpful_vs_number_" + name + ".png", bbox_inches='tight')      
+    plt.title('Number of reviews vs Helpful ratio for ' + name)
+    plt.savefig(IMG_PATH + "helpful_vs_number_" + name + ".png")      
     plt.clf()
 
     print("Helpfull votes done", end='\r')
@@ -82,22 +84,24 @@ def generate_graphs(data, name):
     #fig, (ax1, ax2) = plt.subplots(1,2, figsize=(15,6))
         
     # First plot the average rating with its confidence interval
+    plt.figure(figsize=(10,6))
     plt.plot(grouped_product_n_reviews['n_reviews']['mean'], grouped_product_n_reviews['rating']['mean'])
     plt.fill_between(grouped_product_n_reviews['n_reviews']['mean'], grouped_product_n_reviews['rating']['mean'] - 1.96 * grouped_product_n_reviews['rating']['std'] / np.sqrt(grouped_product_n_reviews['rating']['count']), \
                                             grouped_product_n_reviews['rating']['mean'] + 1.96 * grouped_product_n_reviews['rating']['std'] / np.sqrt(grouped_product_n_reviews['rating']['count']), alpha=0.5)
     plt.xscale('log')
     plt.xlabel('Number of reviews per product')
     plt.ylabel('Average Rating')
-    plt.title('Average Rating vs Number of reviews per product (with 95% CI) for category ' + name)
-    plt.savefig(IMG_PATH + "rating_vs_reviews_" + name + ".png", bbox_inches='tight') 
+    plt.title('Average Rating vs Number of reviews per product for ' + name)
+    plt.savefig(IMG_PATH + "rating_vs_reviews_" + name + ".png") 
     plt.clf()
 
+    plt.figure(figsize=(10,6))
     plt.plot(grouped_product_n_reviews['n_reviews']['mean'], grouped_product_n_reviews['rating']['count'])
     plt.xscale('log')
     plt.xlabel('Number of reviews per product')
     plt.ylabel('Number of products')
-    plt.title('Number of products VS Number of reviews per product for category ' + name) 
-    plt.savefig(IMG_PATH + "number_vs_reviews_" + name + ".png", bbox_inches='tight')  
+    plt.title('Number of products vs Number of reviews per product for  ' + name) 
+    plt.savefig(IMG_PATH + "number_vs_reviews_" + name + ".png")  
     plt.clf()
 
     print("Number reviews done", end='\r')
@@ -117,20 +121,22 @@ def generate_graphs(data, name):
         #fig, (ax1, ax2) = plt.subplots(1,2, figsize=(15,6))
         
         # First plot the average rating with it's condidence interval
+        plt.figure(figsize=(10,6))
         plt.plot(by_time_pd[time_name], by_time_pd['rating'])
         plt.fill_between(by_time_pd[time_name], by_time_pd['rating'] - 1.96 * by_time_pd['stddev_samp(star_rating)'] / np.sqrt(by_time_pd['count(review_id)']), \
                                              by_time_pd['rating'] + 1.96 * by_time_pd['stddev_samp(star_rating)'] / np.sqrt(by_time_pd['count(review_id)']), alpha=0.5)
         plt.xlabel(time_name)
         plt.ylabel('Average Rating')
-        plt.title('Average Rating vs ' + time_name + ' for category ' + name)
-        plt.savefig(IMG_PATH + "rating_by_" + time_name + "_evolution_"+ name + ".png", bbox_inches='tight')  
+        plt.title('Average Rating vs ' + time_name + ' for ' + name)
+        plt.savefig(IMG_PATH + "rating_by_" + time_name + "_evolution_"+ name + ".png")  
         plt.clf()
 
+        plt.figure(figsize=(10,6))
         plt.plot(by_time_pd[time_name], by_time_pd['count(review_id)'])
         plt.xlabel(time_name)
         plt.ylabel('Number of reviews')
-        plt.title('Number of reviews vs ' + time_name + ' for category ' + name)
-        plt.savefig(IMG_PATH + "number_by_" + time_name + "_evolution_"+ name + ".png", bbox_inches='tight')  
+        plt.title('Number of reviews vs ' + time_name + ' for ' + name)
+        plt.savefig(IMG_PATH + "number_by_" + time_name + "_evolution_"+ name + ".png")  
         plt.clf()
 
     by_time = data.select(data['star_rating'],to_date(data['review_date'], 'yyyy-MM-dd').alias('date'), data['review_id'])
@@ -164,20 +170,22 @@ def generate_graphs(data, name):
     #fig, (ax1, ax2) = plt.subplots(1,2, figsize=(15,6))
         
     # First plot the average rating with its confidence interval
+    plt.figure(figsize=(10,6))
     plt.plot(by_title_length_pd['title_length'], by_title_length_pd['rating'])
     plt.fill_between(by_title_length_pd['title_length'], by_title_length_pd['rating'] - 1.96 * by_title_length_pd['std_rating'] / np.sqrt(by_title_length_pd['count']), \
                                             by_title_length_pd['rating'] + 1.96 * by_title_length_pd['std_rating'] / np.sqrt(by_title_length_pd['count']), alpha=0.5)
     plt.xlabel('Review title length')
     plt.ylabel('Average Rating')
-    plt.title('Average Rating vs Review title length (with 95% CI) for category ' + name)
-    plt.savefig(IMG_PATH + "rating_vs_title_length_" + name + ".png", bbox_inches='tight')
+    plt.title('Average Rating vs Title length for ' + name)
+    plt.savefig(IMG_PATH + "rating_vs_title_length_" + name + ".png")
     plt.clf()
 
+    plt.figure(figsize=(10,6))
     plt.plot(by_title_length_pd['title_length'], by_title_length_pd['count'])
     plt.xlabel('Review title length')
     plt.ylabel('Number of reviews')
-    plt.title('Number of reviews vs Review title length for category ' + name)
-    plt.savefig(IMG_PATH + "number_vs_itle_length_" + name + ".png", bbox_inches='tight')  
+    plt.title('Number of reviews vs Title length for ' + name)
+    plt.savefig(IMG_PATH + "number_vs_itle_length_" + name + ".png")  
     plt.clf()
 
 
@@ -195,20 +203,22 @@ def generate_graphs(data, name):
     #fig, (ax1, ax2) = plt.subplots(1,2, figsize=(15,6))
         
     # First plot the average rating with its confidence interval
+    plt.figure(figsize=(10,6))
     plt.plot(by_body_length_pd['body_length'], by_body_length_pd['rating'])
     plt.fill_between(by_body_length_pd['body_length'], by_body_length_pd['rating'] - 1.96 * by_body_length_pd['std_rating'] / np.sqrt(by_body_length_pd['count']), \
                                            by_body_length_pd['rating'] + 1.96 * by_body_length_pd['std_rating'] / np.sqrt(by_body_length_pd['count']), alpha=0.5)
     plt.xlabel('Review body length')
     plt.ylabel('Average Rating')
-    plt.title('Average Rating vs Review body length (with 95% CI) for category ' + name)
-    plt.savefig(IMG_PATH + "rating_vs_review_length_" + name + ".png", bbox_inches='tight') 
+    plt.title('Average Rating vs Review length for ' + name)
+    plt.savefig(IMG_PATH + "rating_vs_review_length_" + name + ".png") 
     plt.clf()
-     
+    
+    plt.figure(figsize=(10,6))
     plt.plot(by_body_length_pd['body_length'], by_body_length_pd['count'])
     plt.xlabel('Review body length')
     plt.ylabel('Number of reviews')
-    plt.title('Number of reviews vs Review body length for category ' + name)
-    plt.savefig(IMG_PATH + "number_vs_review_length_" + name + ".png", bbox_inches='tight') 
+    plt.title('Number of reviews vs Review length for ' + name)
+    plt.savefig(IMG_PATH + "number_vs_review_length_" + name + ".png") 
     plt.clf()
 
     print("Text analysis done", end='\r')
