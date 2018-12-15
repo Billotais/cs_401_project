@@ -80,6 +80,6 @@ Herding behaviour is another effect we will consider in the next milestone.
 
 ## Milestone 3
 
-In milestone 3, we performed a more detailed by-country analysis. In particular we looked at the herding effect. We also implemented our bias correction formula. Moreover, our previous analysis from milestone 2 was run onn all categories. The resulting plots can all be found in the `img/` folder
+In milestone 3, we performed a more detailed by-country analysis. In particular we looked at the herding effect. We also implemented our bias correction formula. Moreover, our previous analysis from milestone 2 was run on all categories, using `script_categories.py` and `script_countries.py`. The resulting plots can all be found in the `img/` folder.
 
-The new results were added to the notebook, and a datastory is available here : https://ada-lyn.github.io/
+The new results were added to the notebook, and a full datastory is available here : https://ada-lyn.github.io/
