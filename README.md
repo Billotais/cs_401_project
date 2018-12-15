@@ -22,7 +22,7 @@ A list of research questions we would like to address during the project.
 
 ## Dataset
 
-We will use the [Amazon Dataset](http://jmcauley.ucsd.edu/data/amazon/).
+We will use the [Amazon Dataset](https://s3.amazonaws.com/amazon-reviews-pds/readme.html).
 
 We will use NLP to extract interesting features from the product name and from the review text, and some image processing if we analyse the product picture
 
