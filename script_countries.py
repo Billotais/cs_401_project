@@ -54,9 +54,11 @@ def generate_graphs(data_1, data_2, name_1, name_2):
     c1_pd = common_c1_avg.toPandas()
     c2_pd = common_c2_avg.toPandas()
 
+    plt.figure(figsize=(10,6))
     plt.boxplot([c1_pd['rating'], c2_pd['rating']], 0, sym='',autorange=True, labels=[name_1, name_2])
     plt.title('Distribution of the average ratings / product - '+ name_1 + " vs " + name_2)
     plt.ylabel('Average rating')
+    plt.ylim(2.4, 5.1)
     plt.savefig(IMG_PATH + "countries/average_rating_" + name_1 + "_" + name_2 + ".png", bbox_inches='tight')
     plt.clf()
     
