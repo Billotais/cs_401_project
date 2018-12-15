@@ -22,7 +22,7 @@ A list of research questions we would like to address during the project.
 
 ## Dataset
 
-We will use the [Amazon Dataset](http://jmcauley.ucsd.edu/data/amazon/).
+We will use the [Amazon Dataset](https://s3.amazonaws.com/amazon-reviews-pds/readme.html).
 
 We will use NLP to extract interesting features from the product name and from the review text, and some image processing if we analyse the product picture
 
@@ -80,30 +80,6 @@ Herding behaviour is another effect we will consider in the next milestone.
 
 ## Milestone 3
 
-### For the Datastory
+In milestone 3, we performed a more detailed by-country analysis. In particular we looked at the herding effect. We also implemented our bias correction formula. Moreover, our previous analysis from milestone 2 was run on all categories, using `script_categories.py` and `script_countries.py`. The resulting plots can all be found in the `img/` folder.
 
-- Introduction :
-	- Context
-	- Motivation
-	- General description / statistics
-	- Explanations of decisions / simplification
-- Effect on rating :
-	- by category
-		- Interesting effects observed (dates, helpful, ...) for Books
-			- Interpretation
-			- Importance for bias correction
-		- Comparasion with other categories
-	- by country
-		- Difference between countries
-		- Herding
-	- (by user) 
-		- by category 
-- Bias correction
-	- Decisions
-	- Correction by date and other factors seen in previous observations
-	- Correction by user history (using the formula)
-- Conclusion
-	- Summary
-	- Further possible work
-	- Usefulness (ethics, applicable, for whom, ...)
-	- (Comparasion with otehr studies ?)
+The new results were added to the notebook, and a full datastory is available here : https://ada-lyn.github.io/
