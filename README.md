@@ -1,5 +1,6 @@
 # Detecting Bias in Amazon reviews
 
+https://ada-lyn.github.io/
 
 ## Abstract
 
@@ -81,5 +82,7 @@ Herding behaviour is another effect we will consider in the next milestone.
 ## Milestone 3
 
 In milestone 3, we performed a more detailed by-country analysis. In particular we looked at the herding effect. We also implemented our bias correction formula. Moreover, our previous analysis from milestone 2 was run on all categories, using `script_categories.py` and `script_countries.py`. The resulting plots can all be found in the `img/` folder.
+
+The work was globaly well distributed between us. For the milestone 2 code, we all worked on the data exploration, often together, and when we worked separatly each one was still contributing to the others' code. For Milestone 3, Loïs mostly worked on creating the scripts to generate the graphs, on the herding behavior, and on the datastory implementation. Nicolas mostly worked on the correction implementation, and ran the scripts to generate the graphs. Yves mostly worked on the herding behavior. We all wrote some part of the datastory.
 
 The new results were added to the notebook, and a full datastory is available here : https://ada-lyn.github.io/
